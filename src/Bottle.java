@@ -2,6 +2,7 @@ public class Bottle {
     private double capacity;
     private double amountOfWater;
     int bottleId = 0;
+    private static final String AFTER_THIS = "After this, the water capacity of the bottle ";
 
     Bottle(double capacity, int bottleId) {
         this.bottleId = bottleId;
@@ -14,7 +15,7 @@ public class Bottle {
         System.out.println("You are trying to pour " + refilled + " water into a bottle " + this.bottleId + ". There is " + this.amountOfWater + " water.");
         if (capacity >= amountOfWater + refilled) {
             amountOfWater += refilled;
-            System.out.println("After this, the water capacity of the bottle " + this.bottleId + " is: " + amountOfWater);
+            System.out.println(AFTER_THIS + this.bottleId + " is: " + amountOfWater);
             return true;
         }
         else
@@ -25,7 +26,7 @@ public class Bottle {
         System.out.println("You are trying to pour out " + quantity + " water into a bottle " + this.bottleId + ". There is " + this.amountOfWater + " water.");
         if (amountOfWater > quantity) {
             amountOfWater -= quantity;
-            System.out.println("After this, the water capacity of the bottle " + this.bottleId + " is: " + amountOfWater);
+            System.out.println(AFTER_THIS + this.bottleId + " is: " + amountOfWater);
             return true;
         }
         else
@@ -37,7 +38,7 @@ public class Bottle {
         if (this.amountOfWater > quantity && bottle.capacity >= bottle.amountOfWater + quantity) {
             this.amountOfWater -= quantity;
             bottle.amountOfWater += quantity;
-            System.out.println("After this, the water capacity of the bottle " + this.bottleId + " is " + this.amountOfWater + " and the water capacity of the bottle " + bottle.bottleId + " is " + bottle.amountOfWater);
+            System.out.println(AFTER_THIS + this.bottleId + " is " + this.amountOfWater + " and the water capacity of the bottle " + bottle.bottleId + " is " + bottle.amountOfWater);
             return true;
         }
         else if (this.amountOfWater < quantity) {
